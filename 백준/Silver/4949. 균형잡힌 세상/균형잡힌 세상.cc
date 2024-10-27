@@ -12,7 +12,7 @@ int main() {
 	char buffer[101] = " ";
 	while (true) {
 		st = {};
-		cin.getline(buffer, 101, '.');
+		cin.getline(buffer, 100, '.');
 		cin.ignore();
 		if (!*buffer) break;
 		char* p = buffer;
