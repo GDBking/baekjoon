@@ -5,8 +5,7 @@ using namespace std;
 
 int N;
 vector<pair<int, int>> A;
-
-bool compare(pair<int, int> a, pair<int, int> b);
+vector<int> result;
 
 int main() {
     ios::sync_with_stdio(false);
@@ -21,22 +20,17 @@ int main() {
         A[i] = make_pair(temp, i);
     }
     sort(A.begin(), A.end());
-    int temp = A[0].first;
-    A[0].first = 0;
+    
+    result.resize(N);
+    result[A[0].second] = 0;
+    int cnt = 0;
     for (int i = 1; i < N; i++) {
-        if (A[i].first == temp)
-            A[i].first = A[i - 1].first;
-        else {
-            temp = A[i].first;
-            A[i].first = A[i - 1].first + 1;
-        }
+        if (A[i].first == A[i - 1].first)
+            result[A[i].second] = cnt;
+        else
+            result[A[i].second] = ++cnt;
     }
 
-    sort(A.begin(), A.end(), compare);
-    for (pair<int, int> i : A)
-        cout << i.first << " ";
-}
-
-bool compare(pair<int, int> a, pair<int, int> b) {
-    return a.second < b.second;
+    for (int i : result)
+        cout << i << " ";
 }
