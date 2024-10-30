@@ -17,7 +17,7 @@ int main() {
 int power(long long square) {
     if (square == 1) return A % C;
 
-    long long k = power(square / 2) % C;
+    long long k = power(square / 2);
     if (square % 2 == 0) return k * k % C;
     return k * k % C * A % C;
 }
