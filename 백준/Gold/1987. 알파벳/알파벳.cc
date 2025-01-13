@@ -3,7 +3,7 @@
 using namespace std;
 
 int R, C;
-char board[20][25];
+char board[20][21];
 bool visitedAlpha[26];
 int order[4][2] = { { -1, 0 }, { 0, -1 }, { 0, 1 }, { 1, 0 } };
 int ans = 0;
