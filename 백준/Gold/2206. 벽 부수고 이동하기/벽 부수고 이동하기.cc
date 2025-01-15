@@ -32,13 +32,13 @@ int BFS(int N, int M)
             {
                 if (!broken)
                 {
-                    maze[nx][ny][broken + 1] = maze[x][y][broken] + 1;
+                    maze[nx][ny][1] = maze[x][y][0] + 1;
                     q.push({ 1, { nx, ny } });
                 }
             }
             else if (maze[nx][ny][0] == 0)
             {
-                if (broken == 1 && maze[nx][ny][broken])
+                if (broken == 1 && maze[nx][ny][1])
                     continue;
                 maze[nx][ny][broken] = maze[x][y][broken] + 1;
                 q.push({ broken, { nx, ny } });
