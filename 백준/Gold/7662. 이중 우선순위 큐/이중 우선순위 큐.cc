@@ -1,12 +1,12 @@
 #include <iostream>
 #include <algorithm>
 #include <queue>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
 priority_queue<int, vector<int>, greater<int>> min_pq;
 priority_queue<int, vector<int>, less<int>> max_pq;
-map<int, int> cnt;
+unordered_map<int, int> cnt;
 
 int main()
 {
