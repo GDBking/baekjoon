@@ -49,10 +49,8 @@ int main()
     cin >> T;
     while (T--) 
     {
-        while (!min_pq.empty())
-            min_pq.pop();
-        while (!max_pq.empty())
-            max_pq.pop();
+        min_pq = {};
+        max_pq = {};
         cnt.clear();
 
         cin >> k;
