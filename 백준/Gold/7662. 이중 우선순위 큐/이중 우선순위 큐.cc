@@ -10,6 +10,10 @@ unordered_map<int, int> cnt;
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     int T, n, k;
     char cmd;
 
