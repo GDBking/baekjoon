@@ -8,7 +8,6 @@ vector<int> prime;
 bool isPrime[MAXNUM];
 
 void Eratosthenes();
-void twoPointer(int k);
 
 int main()
 {
@@ -23,7 +22,12 @@ int main()
 	cin >> temp;
 	while (temp)
 	{
-		twoPointer(temp);
+		for (int i = 0; i < prime.size(); i++)
+			if (isPrime[temp - prime[i]])
+			{
+				cout << temp << " = " << prime[i] << " + " << temp - prime[i] << "\n";
+				break;
+			}
 		cin >> temp;
 	}
 }
@@ -34,24 +38,10 @@ void Eratosthenes()
 		if (isPrime[i])
 			for (int j = i << 1; j < MAXNUM; j += i)
 				isPrime[j] = false;
-}
 
-void twoPointer(int k)
-{
-	int l = 3, r = k - 3;
-	while (!isPrime[r])
-		r++;
-	while (l <= r)
+	for (int i = 3; i < MAXNUM; i++)
 	{
-		int sum = l + r;
-		if (sum < k)
-			while (!isPrime[++l]) {}
-		else if (sum > k)
-			while (!isPrime[--r]) {}
-		else
-		{
-			cout << k << " = " << l << " + " << r << "\n";
-			break;
-		}
+		if (isPrime[i])
+			prime.push_back(i);
 	}
 }
